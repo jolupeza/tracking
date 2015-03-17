@@ -81,7 +81,7 @@ class Info_model extends CI_Model {
 
 	public function getPublicidad()
 	{
-		$this->db->select('id, guid');
+		$this->db->select('id, guid, post_excerpt, post_title');
 		$where = array(
 			'post_status' => 'publish',
 			'post_type' => 'publicidad',

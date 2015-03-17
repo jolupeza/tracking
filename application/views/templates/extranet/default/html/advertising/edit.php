@@ -22,11 +22,17 @@
 			<?php echo form_open('', array('id' => 'js-frm-edit-publi'), array('token' => $_token)); ?>
 			<div class="row">
 				<div class="col-xs-8">
-					<!-- Customer Name -->
+					<!-- Publicidad Name -->
 					<div class="form-group">
 	    				<label for="publi_name" class="form__label">Nombre</label>
 	    				<input type="text" class="form-control form__input" name="publi_name" id="publi_name" value="<?php echo $_advertising->post_title; ?>"  required/>
 	  				</div><!-- end form-group -->
+
+	  				<!-- Publicidad Url -->
+					<div class="form-group">
+						<label for="publi_url" class="sr-only">Url</label>
+						<input type="url" class="form-control form__input" name="publi_url" id="publi_url" value="<?php echo $_advertising->post_excerpt; ?>" />
+					</div><!-- end form-group -->
 
 	  				<button type="submit" class="button button--default"><?php echo $this->lang->line('cms_general_label_save'); ?></button>
 				</div><!-- end col-xs-8 -->

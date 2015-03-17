@@ -4,10 +4,10 @@
 			<p class="panel__info"><span>Pedido: </span><?php echo $order->post_title; ?></p>
 		</div>
 		<div class="col-xs-4">
-			<p class="panel__info"><span>Fecha del Pedido: </span><?php echo date('Y-m-d', strtotime($order->created_at)); ?></p>
+			<p class="panel__info"><span>Fecha del Pedido: </span><?php echo date('d-m-Y', strtotime($order->created_at)); ?></p>
 		</div>
 		<div class="col-xs-4">
-			<p class="panel__info"><span>Fecha de Entrega: </span><?php echo date('Y-m-d', strtotime($order->published_at)); ?></p>
+			<p class="panel__info"><span>Fecha de Entrega: </span><?php echo date('d-m-Y', strtotime($order->published_at)); ?></p>
 		</div>
 	</div>
 	<div class="row">
@@ -53,8 +53,8 @@
 	<!-- Pensar para solo mostrar triangulo al estado activo -->
 	<article class="main__states__item <?php echo $dateActive . ' ' . $stateSuccess; ?>">
 		<p class="main__states__item__date text-center">
-		<?php if ($z > 0 && $z != $total - 1) echo 'Fecha estimada';?>
-			<?php echo $value[2]; ?>
+		<?php if ($z > 0 && $z != $total - 1) echo 'Fecha estimada <br />';?>
+			<?php echo date('d-m-Y', strtotime($value[2])); ?>
 		</p>
 		<hr class="main__states__item__state <?php echo $success; ?>" />
 		<figure class="main__states__item__img <?php echo $active; ?> main__states__item__img--<?php echo $key; ?>" data-id="<?php echo $key; ?>" data-title="<?php echo $value[3]; ?>" data-obs="<?php echo $value[0]; ?>" style="background-image: url('<?php echo $value[4]; ?>');">

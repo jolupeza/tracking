@@ -21,15 +21,22 @@
 
 						<!-- Publicidad Name -->
 						<div class="form-group">
-							<label for="publi_name" class="sr-only">Nombre</label>
-							<input type="text" class="form-control form__input" name="publi_name" id="publi_name" placeholder="Nombre" required />
+							<label for="publi_name" class="form__label">Nombre</label>
+							<input type="text" class="form-control form__input" name="publi_name" id="publi_name"  required />
+						</div><!-- end form-group -->
+
+						<!-- Publicidad Url -->
+						<div class="form-group">
+							<label for="publi_url" class="form__label">Url</label>
+							<input type="url" class="form-control form__input" name="publi_url" id="publi_url" value="http://" />
 						</div><!-- end form-group -->
 
 						<?php if ($this->user->has_permission('upload_files')) : ?>
 						<!-- Customer Avatar -->
 						<div class="form-group">
+							<label for="fieldID" class="form__label">Imagen</label>
 							<div class="input-group">
-							  	<input type="text" class="form-control form__input" id="fieldID" name="publi_avatar" value="" placeholder="Imagen">
+							  	<input type="text" class="form-control form__input" id="fieldID" name="publi_avatar" value="" />
 							  	<a class="btn iframe-btn input-group-addon" type="button" href="<?php echo base_url(); ?>filemanager/dialog.php?type=1&field_id=fieldID"><i class="fa fa-image"></i></a>
 							</div>
 						</div><!-- end form-group -->

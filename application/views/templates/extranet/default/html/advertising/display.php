@@ -24,6 +24,7 @@
 			<th>Activo</th>
 			<th><a class="link-ajax" href="<?php echo base_url(); ?>extranet/advertising/displayAjax/<?php echo $_status; ?>/id/<?php echo ($_sort_order === 'asc') ? 'desc' : 'asc'; ?>/<?php echo $_limit; ?>/<?php echo $_search; ?>">ID<i class="fa <?php echo ($_sort_order == 'asc') ? 'fa-angle-down' : 'fa-angle-up' ?>"></i></a></th>
 			<th><a class="link-ajax" href="<?php echo base_url(); ?>extranet/advertising/displayAjax/<?php echo $_status; ?>/post_title/<?php echo ($_sort_order === 'asc') ? 'desc' : 'asc'; ?>/<?php echo $_limit; ?>/<?php echo $_search; ?>">Nombre<i class="fa <?php echo ($_sort_order == 'asc') ? 'fa-angle-down' : 'fa-angle-up' ?>"></i></a></th>
+			<th>Url</th>
 			<th>Imagen</th>
 			<th></th>
 		</tr>
@@ -35,7 +36,12 @@
 			<td class="text-center"><input type="radio" name="publi_active" id="js-public-active" value="<?php echo $item->id; ?>" <?php echo $active; ?> /><span class="lbl"></span></td>
 			<td class="text-center"><?php echo $item->id; ?></td>
 			<td><?php echo $item->post_title; ?></td>
-			<td><img src="<?php echo $item->guid; ?>" class="img-responsive" /></td>
+			<td><?php echo $item->post_excerpt; ?></td>
+			<td>
+			<?php if (!empty($item->guid)) : ?>
+				<img src="<?php echo $item->guid; ?>" class="img-responsive" />
+			<?php endif; ?>
+			</td>
 			<td class="text-center">
 				<div class="table__actions">
 				<?php if ($this->user->has_permission('edit_customers')) : ?>

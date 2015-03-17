@@ -89,7 +89,9 @@ class Advertising extends MY_Controller
 	*/
 	public function add()
 	{
-		$name = $this->input->post('name');
+		$token  = $this->input->post('token');
+		$name   = $this->input->post('name');
+		$url    = $this->input->post('url');
 		$avatar = $this->input->post('avatar');
 
 		$result = array(
@@ -97,47 +99,51 @@ class Advertising extends MY_Controller
 		);
 
 		if ($this->user->has_permission('add_advertising')) {
-			if (!empty($name)) {
-				$this->load->model('Advertising_model');
-				$this->load->library(array('encrypt', 'email', 'image_lib'));
-				$this->load->helper(array('functions', 'directory'));
+			if ($this->input->post('token') == $this->session->userdata('token'))
+			{
+				if (!empty($name)) {
+					$this->load->model('Advertising_model');
+					$this->load->library(array('encrypt', 'email', 'image_lib'));
+					$this->load->helper(array('functions', 'directory'));
 
-				$data = array(
-					'post_title'  =>	$name,
-					'post_status' => 	'draft',
-					'post_type'   => 	'publicidad',
-					'guid'        =>	$avatar,
-					'created'     =>	$this->user->id,
-					'created_at'  =>	date('Y-m-d H:i:s')
-				);
-				$last_id = $this->Advertising_model->add(NULL, $data);
+					$data = array(
+						'post_title'   =>	$name,
+						'post_status'  => 	'draft',
+						'post_excerpt' =>	$url,
+						'post_type'    => 	'publicidad',
+						'guid'         =>	$avatar,
+						'created'      =>	$this->user->id,
+						'created_at'   =>	date('Y-m-d H:i:s')
+					);
+					$last_id = $this->Advertising_model->add(NULL, $data);
 
-				if ((int)$last_id > 0) {
-					if (!empty($avatar)) {
-						$avatarArr = explode('/', $avatar);
-						$nameAvatar = $avatarArr[count($avatarArr) - 1];
+					if ((int)$last_id > 0) {
+						if (!empty($avatar)) {
+							$avatarArr = explode('/', $avatar);
+							$nameAvatar = $avatarArr[count($avatarArr) - 1];
 
-						$dirThumb = directory_map('./ad-content/thumbs/');
-						if ($this->config->item('cms_thumbnail_size_w') > 0 || $this->config->item('cms_thumbnail_size_h') > 0) {
-							if(!in_array($nameAvatar . '-' . $this->config->item('cms_thumbnail_size_w') . 'x' . $this->config->item('cms_thumbnail_size_h'), $dirThumb)) {
-								create_thumbnail($nameAvatar, $this->config->item('cms_thumbnail_size_w'), $this->config->item('cms_thumbnail_size_h'));
+							$dirThumb = directory_map('./ad-content/thumbs/');
+							if ($this->config->item('cms_thumbnail_size_w') > 0 || $this->config->item('cms_thumbnail_size_h') > 0) {
+								if(!in_array($nameAvatar . '-' . $this->config->item('cms_thumbnail_size_w') . 'x' . $this->config->item('cms_thumbnail_size_h'), $dirThumb)) {
+									create_thumbnail($nameAvatar, $this->config->item('cms_thumbnail_size_w'), $this->config->item('cms_thumbnail_size_h'));
+								}
+							}
+
+							if ($this->config->item('cms_medium_size_w') > 0 || $this->config->item('cms_medium_size_h') > 0) {
+								if(!in_array($nameAvatar . '-' . $this->config->item('cms_medium_size_w') . 'x' . $this->config->item('cms_medium_size_h'), $dirThumb)) {
+									create_thumbnail($nameAvatar, $this->config->item('cms_medium_size_w'), $this->config->item('cms_medium_size_h'));
+								}
+							}
+
+							if ($this->config->item('cms_large_size_w') > 0 || $this->config->item('cms_large_size_h') > 0) {
+								if(!in_array($nameAvatar . '-' . $this->config->item('cms_large_size_w') . 'x' . $this->config->item('cms_large_size_h'), $dirThumb)) {
+									create_thumbnail($nameAvatar, $this->config->item('cms_large_size_w'), $this->config->item('cms_large_size_h'));
+								}
 							}
 						}
 
-						if ($this->config->item('cms_medium_size_w') > 0 || $this->config->item('cms_medium_size_h') > 0) {
-							if(!in_array($nameAvatar . '-' . $this->config->item('cms_medium_size_w') . 'x' . $this->config->item('cms_medium_size_h'), $dirThumb)) {
-								create_thumbnail($nameAvatar, $this->config->item('cms_medium_size_w'), $this->config->item('cms_medium_size_h'));
-							}
-						}
-
-						if ($this->config->item('cms_large_size_w') > 0 || $this->config->item('cms_large_size_h') > 0) {
-							if(!in_array($nameAvatar . '-' . $this->config->item('cms_large_size_w') . 'x' . $this->config->item('cms_large_size_h'), $dirThumb)) {
-								create_thumbnail($nameAvatar, $this->config->item('cms_large_size_w'), $this->config->item('cms_large_size_h'));
-							}
-						}
+						$result['valid'] = TRUE;
 					}
-
-					$result['valid'] = TRUE;
 				}
 			}
 		}
@@ -185,13 +191,15 @@ class Advertising extends MY_Controller
 				$this->load->helper(array('functions', 'directory'));
 
 				$name = $this->input->post('publi_name');
+				$url = $this->input->post('publi_url');
 				$avatar = $this->input->post('publi_avatar');
 
 				$data = array(
-					'post_title'  =>	$name,
-					'guid'        =>	$avatar,
-					'modified'    =>	$this->user->id,
-					'modified_at' =>	date('Y-m-d H:i:s')
+					'post_title'   =>	$name,
+					'post_excerpt' =>	$url,
+					'guid'         =>	$avatar,
+					'modified'     =>	$this->user->id,
+					'modified_at'  =>	date('Y-m-d H:i:s')
 				);
 
 				if ($this->Advertising_model->edit(NULL, array('id' => $id), $data)) {

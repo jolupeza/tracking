@@ -92,6 +92,13 @@ var j = jQuery.noConflict();
 	      				}
 	      			}
 	      		},
+	      		publi_url: {
+	      			validators: {
+	      				uri: {
+	      					message: 'El enlace no es válido'
+	      				}
+	      			}
+	      		},
 	      	},
 	    })
 		.on('success.form.bv', function(e){
@@ -104,11 +111,13 @@ var j = jQuery.noConflict();
 
       		var token = dataArray[0].value;
       		var name = dataArray[1].value;
-      		var avatar = dataArray[2].value;
+      		var url = dataArray[2].value;
+      		var avatar = dataArray[3].value;
 
       		j.post(_root_ + 'extranet/advertising/add', {
 				token 		: token,
 				name     	: name,
+				url 	    : url,
 				avatar 		: avatar
       		}, function(data) {
         		spinner.stop();
@@ -139,6 +148,13 @@ var j = jQuery.noConflict();
 	      			validators: {
 	      				notEmpty: {
 	      					message: 'Campo requerido'
+	      				}
+	      			}
+	      		},
+	      		publi_url: {
+	      			validators: {
+	      				uri: {
+	      					message: 'El enlace no es válido'
 	      				}
 	      			}
 	      		},

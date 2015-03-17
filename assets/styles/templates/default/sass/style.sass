@@ -599,13 +599,12 @@ input:-moz-placeholder
 	vertical-align: top
 	width: 15%
 
-	&.active
-		background-color: #f9f9f9
+	&.success
 		&::before
 			border-bottom: 12px solid transparent
 			border-left: 18px solid transparent
 			border-right: 18px solid transparent
-			border-top: 12px solid #f0ad4e
+			border-top: 12px solid #0176bc
 			content: ""
 			height: 0
 			left: 35%
@@ -623,6 +622,22 @@ input:-moz-placeholder
 			position: absolute
 			bottom: 0
 			width: 0
+		.main__states__item__title
+			color: #0176bc !important
+		.main__states__item__img
+			cursor: pointer
+
+	&.success
+		&.active
+			background-color: #f9f9f9
+			border-color: #0176bc white white white
+			&::before
+				border-top: 12px solid $yellow
+			.main__states__item__state--success
+				border-color: $yellow white white white
+
+		.main__states__item__state--success
+			border-color: #0176bc white white white
 
 	&:hover
 		&.success
@@ -631,7 +646,7 @@ input:-moz-placeholder
 				border-bottom: 12px solid transparent
 				border-left: 18px solid transparent
 				border-right: 18px solid transparent
-				border-top: 12px solid #f0ad4e
+				border-top: 12px solid #0176bc
 				content: ""
 				height: 0
 				left: 35%
@@ -649,6 +664,9 @@ input:-moz-placeholder
 				position: absolute
 				bottom: 0
 				width: 0
+			&.active
+				&::before
+					border-top: 12px solid $yellow
 
 	&:first-child, &:last-child
 		.main__states__item__date
@@ -658,10 +676,9 @@ input:-moz-placeholder
 	border-bottom: 10px solid white
 	border-top: 4px solid #b1b1b1
 	margin: 0 0 5px 0
-.main__states__item__state--success
-	border-color: $yellow white white white
+// .main__states__item__state--success
+// 	border-color: #0176bc white white white
 .main__states__item__img
-	cursor: pointer
 	margin: 40px auto 0 auto
 	img
 		margin: 0 auto
@@ -710,7 +727,8 @@ input:-moz-placeholder
 
 .main__states__item__title
 	bottom: 20px
-	color: #0176bc !important
+	color: #ccc !important
+	font-weight: 600
 	margin: 0 0 5px 0
 	padding: 0 5px
 	position: absolute

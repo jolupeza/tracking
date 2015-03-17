@@ -33,7 +33,7 @@ class Advertising_model extends CI_Model
 		$result = array();
 		$res = FALSE;
 
-		$this->db->select('id, post_title, guid, post_status');
+		$this->db->select('id, post_title, post_excerpt, guid, post_status');
 		$this->db->where_in('post_status', $status);
 		$this->db->where('post_type', 'publicidad');
 
@@ -103,7 +103,7 @@ class Advertising_model extends CI_Model
 	public function getAdvertising($id = 0)
 	{
 		if ((int)$id > 0) {
-			$this->db->select('post_title, post_status, guid');
+			$this->db->select('post_title, post_excerpt, post_status, guid');
 
 			$where = array(
 				'id'			=>	$id,
