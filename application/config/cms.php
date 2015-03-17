@@ -12,6 +12,7 @@
 	$config['cms_large_size_w'] = '1024';
 	$config['cms_large_size_h'] = '1024';
 	$config['cms_thumbnail_crop'] = '0';
+	$config['web-shanoc'] = 'http://ad-inspector.com/proyectos/web/shanoc';
 
 /* End of file cms.php */
 /* Location: ./application/config/cms.php */

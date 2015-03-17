@@ -47,24 +47,10 @@
                     <li class="main_menu__ul__li <?php echo $active; ?>"><a href="<?php echo base_url(); ?>extranet/customers"><i class="icon-group"></i>Clientes</a></li>
                     <?php $active = ($item === 'states') ? 'active' : ''; ?>
                     <li class="main_menu__ul__li <?php echo $active; ?>"><a href="<?php echo base_url(); ?>extranet/states"><i class="icon-recycle"></i>Estados</a></li>
+                    <?php $active = ($item === 'advertising') ? 'active' : ''; ?>
+                    <li class="main_menu__ul__li <?php echo $active; ?>"><a href="<?php echo base_url(); ?>extranet/advertising"><i class="fa fa-buysellads"></i>Publicidad</a></li>
                 </ul>
             </nav>
-            <?php /*if (isset($widgets['sidebar'])) : ?>
-                <aside class="sidebar-right visible">
-                    <button type="button" id="toggle-menu">
-                        <i class="fa fa-calendar fa-lg"></i>
-                    </button>
-
-                    <?php foreach ($widgets['sidebar'] as $wds) : ?>
-                        <?php echo $wds; ?>
-                    <?php endforeach; ?>
-
-                    <?php $disabled = (isset($_disabled_add) && $_disabled_add) ? 'disabled' : ''; ?>
-                    <?php if ($this->user->has_permission('edit_posts')) : ?>
-                        <p class="text-center"><a href="<?php echo base_url(); ?>reminders/add" class="btn btn-blue <?php echo $disabled; ?>"><?php echo $this->lang->line('cms_general_title_add_reminder'); ?></a></p>
-                    <?php endif; ?>
-                </aside>
-                <?php endif; */ ?>
         </aside><!-- end sidebar -->
 
         <main class="main">

@@ -443,14 +443,18 @@ class Template
     private function getWidgets()
     {
         $widgets = array(
-            'calendar-sidebar' => array(
-                'config' => $this->widget('calendar', 'getConfig', array('sidebar')),
-                'content' => array('calendar', 'displayCalendar', array('widgets/calendar/display', 'calendar'))
+            'info-sidebar' => array(
+                'config' => $this->widget('info', 'getConfig', array('sidebar')),
+                'content' => array('info', 'displayInfo', array('widgets/info/display', 'info'))
             ),
-            /*'menu-top' => array(
-                'config' => $this->widget('menu', 'getConfig', array('top')),
-                'content' => array('menu', 'getMenu', array('top', 'top'))
-            )*/
+            'orders-sidebar' => array(
+                'config' => $this->widget('info', 'getConfig', array('orders')),
+                'content' => array('info', 'displayOrders', array('widgets/info/displayOrders', 'info'))
+            ),
+            'publi-sidebar' => array(
+                'config' => $this->widget('info', 'getConfig', array('publi')),
+                'content' => array('info', 'displayPublicidad', array('widgets/info/displayPublicidad', 'info'))
+            ),
         );
 
         $positions = $this->getLayoutPositions();

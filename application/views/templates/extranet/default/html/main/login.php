@@ -30,7 +30,7 @@
 			<?php echo form_close(); ?>
 
 			<p class="text-center">
-				<a href="#" class="link-big"><< Regresar al inicio</a>
+				<a href="<?php echo $this->config->item('web-shanoc'); ?>" class="link-big"><< Regresar al inicio</a>
 			</p>
 		</main>
 	</div>

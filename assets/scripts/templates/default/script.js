@@ -1,29 +1,10 @@
 var j = jQuery.noConflict();
 var opts;
 var spinner;
-var heightHeader, heightNavegador;
-var months = new Array();
-months['Enero'] = '01';
-months['Febrero'] = '02';
-months['Marzo'] = '03';
-months['Abril'] = '04';
-months['Mayo'] = '05';
-months['Junio'] = '06';
-months['Julio'] = '07';
-months['Agosto'] = '08';
-months['Setiembre'] = '09';
-months['Octubre'] = '10';
-months['Noviembre'] = '11';
-months['Diciembre'] = '12';
 
 (function($){
-  j(window).on('resize', function(){
-    heightHeader = j('header').outerHeight();
-    heightNavegador = j(window).height();
-
-    j('.sidebar-left').height(heightNavegador - heightHeader);
-    j('.sidebar-right').height(heightNavegador - heightHeader + 10);
-  });
+  // j(window).on('resize', function(){
+  // });
 
 	j(document).on("ready", function(){
     // Cambiar diseño de barra scroll
@@ -33,75 +14,6 @@ months['Diciembre'] = '12';
       scrollspeed     : 100,      //scrolling speed, default value is 60
       mousescrollstep : 25,       //scrolling speed with mouse wheel, default value is 40 (pixel)
       horizrailenabled: false    //nicescroll can manage horizontal scroll (default:true)
-    });
-
-    heightHeader = j('header').outerHeight();
-    heightNavegador = j(window).height();
-
-    j('.sidebar-left').height(heightNavegador - heightHeader);
-    j('.sidebar-right').height(heightNavegador - heightHeader + 10);
-
-    setTimeout(function(){
-      j(".sidebar-left").mCustomScrollbar({
-        axis: "y",
-        //setHeight: heightNavegador - heightHeader,
-        autoHideScrollbar: true,
-      });
-    }, '1000');
-
-    var listReminder = j('.wrapper-list-reminder .list-reminder');
-    var countListReminder = listReminder.length;
-    if (countListReminder > 3) {
-      j('.wrapper-list-reminder').css('height', '235px');
-    }
-
-    j(".wrapper-list-reminder").mCustomScrollbar({
-      axis:"y"
-    });
-
-    j('body').on('click', '.prev_calendar, .next_calendar', function(ev){
-      ev.preventDefault();
-      var href = j(this).attr("href");
-      j('.calendar').load(href);
-    });
-
-    j('body').on('click', '.tb-calendar .day', function(ev){
-      ev.preventDefault();
-      j('.tb-calendar .day').removeClass('selected');
-      var day = j(this).text();
-      if (day.length == 1) day = '0' + day;
-      var month_year = document.getElementById('data_month_year').innerHTML.split("&nbsp;");
-      var month = month_year[0].substring(32);
-      month = months[month];
-      var year = month_year[1].substring(0, 4);
-
-      j('.wrapper-list-reminder').load(_root_ + 'reminders/getDisplayCalendar/displayReminders/calendar/' + year + '/' + month + '/' + day);
-      j(this).addClass('selected');
-    });
-
-    j('#toggle-menu').on('click', function(ev){
-      ev.preventDefault();
-      pageslide = j('.sidebar-right');
-      var widthSidebar = pageslide.outerWidth();
-      var right;
-
-      if (pageslide.hasClass('visible')) {
-        pageslide.removeClass('visible').addClass('oculto');
-        right = -widthSidebar;
-        j('.main-container .main-content .container').addClass('width-auto');
-        //j(this).animate({'right': '0'});
-        j('.main-container').animate({'margin-right': '0'});
-      } else if(pageslide.hasClass('oculto')) {
-        pageslide.removeClass('oculto').addClass('visible');
-        right = 0;
-        j('.main-container .main-content .container').removeClass('width-auto');
-        j('.main-container').animate({'margin-right': widthSidebar + 'px'});
-        //j(this).animate({'right' : widthSidebar + 'px'});
-      }
-
-      pageslide.animate({
-        right: right + 'px'
-      }, 600);
     });
 
     opts = {
@@ -126,26 +38,16 @@ months['Diciembre'] = '12';
     target = document.getElementById('spin');
     spinner = new Spinner(opts);
 
+    /**********************************************************************************/
+    /* Mostrar el pedido de acuerdo a pedido seleccionado */
+    /**********************************************************************************/
+    j('input[id^="li-"]').on('click', function(){
+      var id = j(this).val();
+
+      window.location = _root_ + 'main/view/' + id;
+    });
+
     //j(":file").filestyle();
-
-    j('body').on('click', '#open-sel-month', function(ev){
-      ev.preventDefault();
-      var $this = j(this);
-
-      if (j('.sel-month').hasClass('hidden')) {
-        j('.sel-month').removeClass('hidden');
-      } else {
-        j('.sel-month').addClass('hidden');
-      }
-    });
-
-    j('body').on('click', '.list-month a', function(ev) {
-      ev.preventDefault();
-      spinner.spin(target);
-      var href = j(this).attr('href');
-      j('.calendar').load(href);
-      spinner.stop();
-    });
 	});
 })(jQuery);
 

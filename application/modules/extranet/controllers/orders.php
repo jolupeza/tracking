@@ -359,7 +359,6 @@ class Orders extends MY_Controller
 
 		return TRUE;
 	}
-
 }
 
 /* End of file orders.php */

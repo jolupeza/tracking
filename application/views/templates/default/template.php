@@ -23,92 +23,108 @@
     </head>
     <body>
         <div id="spin"></div><!-- end #spin -->
-        <header class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <h1 class="logo">Aquí irá el header</h1>
-                    </div><!-- end col-xs-12 -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </header><!-- end header -->
 
+    <?php if ($this->user->is_logged_in()) : ?>
         <div class="container">
+            <header class="header">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <h1 class="header__logo">
+                            <a href="<?php echo $this->config->item('web-shanoc'); ?>">
+                                <img src="<?php echo base_url(); ?>assets/images/shanoc-logo.png" class="img-responsive" alt="Shanoc" />
+                            </a>
+                        </h1>
+                    </div><!-- end col-xs-3 -->
+                    <div class="col-xs-9" id="wrapper-menu">
+                        <div class="header__top-menu text-right">
+                            <ul class="mnu-top list-inline">
+                                <li class="active"><a href="<?php echo base_url(); ?>">Extranet</a></li>
+                                <li><a href="<?php echo base_url(); ?>main/logout">Salir</a></li>
+                            </ul>
+
+                            <ul class="list-inline mnu-social">
+                                <li>
+                                    <a href="http://www.facebook.com/" target="_blank" title="Ir a facebook" class="facebook text-hide">Facebook</a>
+                                </li>
+
+                                <li>
+                                    <a href="http://www.twitter.com/" target="_blank" title="Ir a twitter" class="twitter text-hide">Twitter</a>
+                                </li>
+                            </ul>
+                        </div> <!-- end of topMenu -->
+
+                        <nav class="main-menu">
+                            <ul>
+                                <li><a href="<?php echo $this->config->item('web-shanoc'); ?>/#slider-page">Inicio</a></li>
+                                <li><a href="<?php echo $this->config->item('web-shanoc'); ?>/#conocenos">Conócenos</a></li>
+                                <li><a href="<?php echo $this->config->item('web-shanoc'); ?>/#nuestros-productos">Nuestros Productos</a></li>
+                                <li><a href="<?php echo $this->config->item('web-shanoc'); ?>/#novedades">Novedades</a></li>
+                                <li><a href="<?php echo $this->config->item('web-shanoc'); ?>/#escribenos">Escríbenos</a></li>
+                            </ul>
+                        </nav><!-- end main-menu -->
+                    </div><!-- end col-xs-9 -->
+                </div><!-- end row -->
+            </header><!-- end of header -->
+
             <div class="row">
-            <?php if ($this->user->is_logged_in()) : ?>
                 <div class="col-xs-3">
                     <aside class="sidebar">
-                        <div class="widget">
-                            <h3 class="widget__title text-uppercase">Mis datos</h3><!-- end widget__title -->
-
-                            <ul class="widget__list">
-                                <li><span class="widget__list__title text-uppercase">Empresa:</span> </li>
-                                <li><span class="widget__list__title text-uppercase">RUC:</span> </li>
-                                <li><span class="widget__list__title text-uppercase">Sector:</span> </li>
-                                <li><span class="widget__list__title text-uppercase">Ciudad:</span> </li>
-                                <li><span class="widget__list__title text-uppercase">Último pedido:</span> </li>
-                                <li><span class="widget__list__title text-uppercase">N pedidos:</span> </li>
-                            </ul>
-                        </div><!-- end widget -->
+                        <?php if (isset($widgets['sidebar'])) : ?>
+                            <?php foreach ($widgets['sidebar'] as $wds) : ?>
+                                <?php echo $wds; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </aside><!-- end sidebar -->
                 </div><!-- end col-xs-3 -->
+
                 <div class="col-xs-9">
                     <main class="main">
-                        <?php if ($_warning) : ?>
-                        <div class="alert alert-warning">
-                            <?php foreach($_warning as $_msg): ?>
-                                <p><?php echo $_msg; ?></p>
-                            <?php endforeach;?>
-                        </div>
-                        <?php endif; ?>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <?php if ($_warning) : ?>
+                                <div class="alert alert-warning">
+                                    <?php foreach($_warning as $_msg): ?>
+                                        <p><?php echo $_msg; ?></p>
+                                    <?php endforeach;?>
+                                </div>
+                                <?php endif; ?>
 
-                        <?php if ($_success) : ?>
-                        <div class="alert alert-success">
-                            <?php foreach($_success as $_msg): ?>
-                                <p><?php echo $_msg; ?></p>
-                            <?php endforeach;?>
-                        </div>
-                        <?php endif; ?>
+                                <?php if ($_success) : ?>
+                                <div class="alert alert-success">
+                                    <?php foreach($_success as $_msg): ?>
+                                        <p><?php echo $_msg; ?></p>
+                                    <?php endforeach;?>
+                                </div>
+                                <?php endif; ?>
 
-                        <?php if ($_error) : ?>
-                        <div class="alert alert-danger">
-                            <?php foreach($_error as $_msg): ?>
-                                <p><?php echo $_msg; ?></p>
-                            <?php endforeach;?>
-                        </div>
-                        <?php endif; ?>
+                                <?php if ($_error) : ?>
+                                <div class="alert alert-danger">
+                                    <?php foreach($_error as $_msg): ?>
+                                        <p><?php echo $_msg; ?></p>
+                                    <?php endforeach;?>
+                                </div>
+                                <?php endif; ?>
 
-                        <?php if ($_info) : ?>
-                        <div class="alert alert-info">
-                            <?php foreach($_info as $_msg): ?>
-                                <p><?php echo $_msg; ?></p>
-                            <?php endforeach;?>
-                        </div>
-                        <?php endif; ?>
+                                <?php if ($_info) : ?>
+                                <div class="alert alert-info">
+                                    <?php foreach($_info as $_msg): ?>
+                                        <p><?php echo $_msg; ?></p>
+                                    <?php endforeach;?>
+                                </div>
+                                <?php endif; ?>
+                            </div><!-- end col-xs-12 -->
+                        </div><!-- end row -->
 
                         <?php foreach($_content as $_view): ?>
                             <?php include $_view;?>
                         <?php endforeach; ?>
                     </main><!-- end main -->
                 </div><!-- end col-xs-9 -->
-
-                <?php /*if (isset($widgets['sidebar'])) : ?>
-                <aside class="sidebar-right visible">
-                    <button type="button" id="toggle-menu">
-                        <i class="fa fa-calendar fa-lg"></i>
-                    </button>
-
-                    <?php foreach ($widgets['sidebar'] as $wds) : ?>
-                        <?php echo $wds; ?>
-                    <?php endforeach; ?>
-
-                    <?php $disabled = (isset($_disabled_add) && $_disabled_add) ? 'disabled' : ''; ?>
-                    <?php if ($this->user->has_permission('edit_posts')) : ?>
-                        <p class="text-center"><a href="<?php echo base_url(); ?>reminders/add" class="btn btn-blue <?php echo $disabled; ?>"><?php echo $this->lang->line('cms_general_title_add_reminder'); ?></a></p>
-                    <?php endif; ?>
-                </aside>
-                <?php endif; */ ?>
-            <?php else : ?>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    <?php else : ?>
+        <div class="container">
+            <div class="row">
                 <div class="col-xs-12">
                     <?php if ($_warning) : ?>
                     <div class="alert alert-warning">
@@ -142,18 +158,19 @@
                     </div>
                     <?php endif; ?>
 
-                    <?php foreach($_content as $_view): ?>
-                        <?php include $_view;?>
-                    <?php endforeach; ?>
                 </div><!-- end col-xs-12 -->
-            <?php endif; ?>
             </div><!-- end row -->
+
+            <?php foreach($_content as $_view): ?>
+                <?php include $_view;?>
+            <?php endforeach; ?>
         </div><!-- end container -->
+    <?php endif; ?>
 
         <!-- Load Javascript -->
-		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>assets/scripts/libraries/jquery/jquery-1.11.0.min.js"><\/script>')</script>
-		<script> var _root_ = '<?php echo base_url(); ?>'</script>
+        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>assets/scripts/libraries/jquery/jquery-1.11.0.min.js"><\/script>')</script>
+        <script> var _root_ = '<?php echo base_url(); ?>'</script>
         <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
         <?php echo $_js; ?>
     </body>
