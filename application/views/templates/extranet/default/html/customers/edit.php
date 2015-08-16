@@ -51,13 +51,13 @@
 				</div><!-- end col-xs-8 -->
 				<div class="col-xs-4">
 					<section class="widget text-right">
-						<h4 class="widget__title text-left"><?php echo $this->lang->line('cms_general_change_password'); ?></h4>
+						<h4 class="widget__title text-left"><?php echo $this->lang->line('cms_general_change_password'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 
 						<button type="submit" class="button button--default" id="js-change-pass-customer" data-id="<?php echo $_customer->id; ?>" data-email="<?php echo $_customer->email; ?>"><?php echo $this->lang->line('cms_general_change_password'); ?></button>
 					</section><!-- end widget -->
 
 					<section class="widget text-right">
-						<h4 class="widget__title text-left"><?php echo $this->lang->line('cms_general_label_featured_image'); ?></h4>
+						<h4 class="widget__title text-left"><?php echo $this->lang->line('cms_general_label_featured_image'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 
 						<!-- Customer Avatar -->
 						<div class="form-group">

@@ -40,10 +40,7 @@ class Customers extends MY_Controller
 				);
 				$this->Customers_model->add('usermeta', $data);
 			}
-		}
-
-		echo 'bien se agregraron';
-		exit;*/
+		}*/
 
 		if (!$this->user->is_logged_in()) {
 			redirect();

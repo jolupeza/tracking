@@ -14,11 +14,13 @@ var j = jQuery.noConflict();
 		});
 
 		j('#dtp-orderdate').datetimepicker({
-			defaultDate: (j("#dtp-orderdate").data('datetime')) ? moment(j("#dtp-orderdate").data('datetime')) : ''
+			defaultDate: (j("#dtp-orderdate").data('datetime')) ? moment(j("#dtp-orderdate").data('datetime')) : '',
+			locale: 'es'
 	    });
 
 	    j('#dtp-deliverydate').datetimepicker({
-			defaultDate: (j("#dtp-deliverydate").data('datetime')) ? moment(j("#dtp-deliverydate").data('datetime')) : ''
+			defaultDate: (j("#dtp-deliverydate").data('datetime')) ? moment(j("#dtp-deliverydate").data('datetime')) : '',
+			locale: 'es'
 	    });
 
 	    j('#js-frm-order').bootstrapValidator({
@@ -76,7 +78,8 @@ var j = jQuery.noConflict();
 	            		},
 	            		callback: {
 	              			message: 'Indicar fecha mayor o igual a la fecha actual y menor a la fecha de entrega',
-	              			callback: function(value, validator) {
+	              			callback: function(value, validator, $field) {
+	              				//console.log($field.data('edit'));
 	                			var m = new moment(value, 'YYYY-MM-DD', true);
 	                			var now = moment().format('YYYY-MM-DD');
 	                			var dateEnd = moment(j('#dtp-deliverydate').data('DateTimePicker').date()).format('YYYY-MM-DD');
@@ -91,8 +94,11 @@ var j = jQuery.noConflict();
 	                  				return false;
 	                			}
 
-	                			if (m.unix() < moment(now).unix()) {
-	                  				return false;
+	                			if ($field.data('edit') === 'undefined')
+	                			{
+		                			if (m.unix() < moment(now).unix()) {
+		                  				return false;
+		                			}
 	                			}
 
 	                			//return m.isAfter(moment());

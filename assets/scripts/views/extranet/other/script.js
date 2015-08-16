@@ -65,12 +65,12 @@ var j = jQuery.noConflict();
       		spinner.spin(target);
 
       		if (value == 'all') {
-        		href_new = _root_ + href_arr[3] + '/' + href_arr[4] + '/' + href_arr[5] + '/' + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + 0 + '/' + href_arr[10];
-        		//href_new = _root_ + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + href_arr[9] + '/' + href_arr[10] + '/' + href_arr[11] + '/' + 0 + '/' + href_arr[13];
-      		} else {
-        		href_new = _root_ + href_arr[3] + '/' + href_arr[4] + '/' + href_arr[5] + '/' + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + value + '/' + href_arr[10];
-        		//href_new = _root_ + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + href_arr[9] + '/' + href_arr[10] + '/' + href_arr[11] + '/' + value + '/' + href_arr[13];
-      		}
+      			href_new = _root_ + href_arr[3] + '/' + href_arr[4] + '/' + href_arr[5] + '/' + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + 0 + '/' + href_arr[10];
+      			//href_new = _root_ + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + href_arr[9] + '/' + href_arr[10] + '/' + href_arr[11] + '/' + 0 + '/' + href_arr[13];
+		    } else {
+		    	href_new = _root_ + href_arr[3] + '/' + href_arr[4] + '/' + href_arr[5] + '/' + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + value + '/' + href_arr[10];
+		    	//href_new = _root_ + href_arr[6] + '/' + href_arr[7] + '/' + href_arr[8] + '/' + href_arr[9] + '/' + href_arr[10] + '/' + href_arr[11] + '/' + value + '/' + href_arr[13];
+		    }
 
       		spinner.stop();
       		j('.main__grid__content').load(href_new);

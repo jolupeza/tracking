@@ -13,6 +13,7 @@ $config['templates']['front']['default'] = array(
 		array('type' => 'base', 'value' => 'libraries/jquery/jquery.nicescroll.min'),
 		array('type' => 'base', 'value' => 'libraries/customscrollbar/jquery.mCustomScrollbar.concat.min'),
 		array('type' => 'base', 'value' => 'libraries/jquery-alerts/jquery.alerts.min'),
+		array('type' => 'base', 'value' => 'libraries/spin/spin.min'),
 		array('type' => 'template', 'value' => 'script'),
 	),
 	'styles'		=>	array(
@@ -34,7 +35,9 @@ $config['templates']['extranet']['default'] = array(
 		array('type' => 'base', 'value' => 'libraries/formValidation/bootstrap.min'),
 		array('type' => 'base', 'value' => 'libraries/fancybox/jquery.fancybox.pack'),
 		array('type' => 'base', 'value' => 'bootstrap/bootstrap-datetimepicker.min'),
+		array('type' => 'base', 'value' => 'bootstrap/locales/es'),
 		array('type' => 'base', 'value' => 'libraries/jquery-alerts/jquery.alerts.min'),
+		array('type' => 'base', 'value' => 'libraries/spin/spin.min'),
 		array('type' => 'base', 'value' => 'bootstrap/bootstrap-switch.min'),
 		array('type' => 'template', 'value' => 'script'),
 	),

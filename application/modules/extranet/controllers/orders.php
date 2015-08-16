@@ -141,8 +141,23 @@ class Orders extends MY_Controller
 							$this->Orders_model->add('postmeta', $data);
 						}
 
+						// Enviamos correo al cliente informándole sobre a creación de su pedido
+						$this->load->library('email');
+						$this->load->helper('functions');
+
+						$user = $this->Orders_model->getRow('users', 'name, email', array('id' => $orderCustomer));
+
+						$subject = 'Nueva orden';
+						$body = '<tr>'
+								.'<td class="bodycopy" style="color: #484848; font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; text-align: center; padding: 50px 50px 50px 50px;">'
+		                		.'Se ha generado una nueva orden de pedido: <strong>' . $orderTitle . '</strong>. Puede ingresar a nuestro sistema para verificar el estado de su pedido.'
+		                		.'</td>'
+		                		.'</tr>';
+						$message = body_email($user->name, $body);
+						send_email($user->email, $subject, $message);
+
 						$this->template->add_message(array('success' => $this->lang->line('cms_general_label_success_add')));
-						redirect('extranet/main/edit/' . $last_id);
+						redirect('extranet/orders/edit/' . $last_id);
 					} else {
 						$this->template->add_message(array('error' => $this->lang->line('cms_general_label_error_action')));
 					}
@@ -228,7 +243,8 @@ class Orders extends MY_Controller
 				$deliveryDate = new DateTime($this->input->post('order_deliverydate'). ' 23:59:59');
 
 				// Validamos que fecha de pedido sea mayor o igual a la fecha actual
-				if ($orderDate < $now || $deliveryDate < $now) {
+				//if ($orderDate < $now || $deliveryDate < $now) {
+				if ($deliveryDate < $now) {
 					$error[] = $this->lang->line('error_order_date');
 				}
 
@@ -320,6 +336,12 @@ class Orders extends MY_Controller
 		// Traemos las observaciones de los estados
 		$obs = $this->Orders_model->getRow('postmeta', 'meta_value', array('post_id' => $id, 'meta_key' => 'mb_post_state_obs'));
 		if ($obs) {
+
+			/*$observations = unserialize($obs->meta_value);
+			var_dump(end($observations));
+			echo end($observations)[2]; exit;*/
+
+
 			$this->template->set('_obs', unserialize($obs->meta_value));
 		}
 

@@ -12,7 +12,7 @@
 	<h4>Resultado de la búsqueda: <?php echo $_search; ?></h4>
 <?php endif; ?>
 
-<?php $totalCustomer = count($_customers); ?>
+<?php $totalCustomer = (isset($_customers)) ? count($_customers) : FALSE ; ?>
 <?php if (isset($_customers) && $totalCustomer) : ?>
 	<?php
 		$firstId = $_customers[0]->id;

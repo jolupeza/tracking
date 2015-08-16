@@ -38,7 +38,7 @@
                     <div class="col-xs-9" id="wrapper-menu">
                         <div class="header__top-menu text-right">
                             <ul class="mnu-top list-inline">
-                                <li class="active"><a href="<?php echo base_url(); ?>">Extranet</a></li>
+                                <li class="active"><a href="<?php echo base_url(); ?>main">Extranet</a></li>
                                 <li><a href="<?php echo base_url(); ?>main/logout">Salir</a></li>
                             </ul>
 
@@ -171,7 +171,6 @@
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>assets/scripts/libraries/jquery/jquery-1.11.0.min.js"><\/script>')</script>
         <script> var _root_ = '<?php echo base_url(); ?>'</script>
-        <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
         <?php echo $_js; ?>
     </body>
 </html>

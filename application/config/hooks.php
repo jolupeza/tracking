@@ -10,9 +10,16 @@
 |
 */
 
-$hook['post_system'] = array(
+$hook['post_system'][] = array(
 	'class'			=>	'Loading',
 	'function'		=>	'setConfiguration',
+	'filename'		=>	'Loading.php',
+	'filepath'		=>	'hooks'
+);
+
+$hook['post_system'][] = array(
+	'class'			=>	'Loading',
+	'function'		=>	'verifyOrders',
 	'filename'		=>	'Loading.php',
 	'filepath'		=>	'hooks'
 );
