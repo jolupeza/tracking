@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "compass/css3"
 /*---------------------------------------------*\
 	$FONTS
@@ -948,4 +949,938 @@ input:-moz-placeholder
 
 @media only screen and (min-width: 992px) and (max-width: 1199px)
 
+=======
+@import "compass/css3"
+/*---------------------------------------------*\
+	$FONTS
+//\*---------------------------------------------*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700)
+// @font-face
+// 	font-family: "roboto"
+// 	src: url('../../../../../fonts/roboto-regular.eot')
+// 	src: url('../../../../../fonts/roboto-regular.eot?#iefix') format("embedded-opentype"), url('../../../../../fonts/roboto-regular.woff2') format("woff2"), url('../../../../../fonts/roboto-regular.woff') format("woff"), url('../../../../../fonts/roboto-regular.ttf') format("truetype"), url('../../../../../fonts/roboto-regular.svg#roboto') format("svg")
+// 	font-weight: normal
+// 	font-style: normal
+
+@font-face
+	font-family: "icomoon"
+	src: url('../../../../fonts/icomoon.eot?x4og14')
+	src: url('../../../../fonts/icomoon.eot?#iefixx4og14') format("embedded-opentype"), url('../../../../fonts/icomoon.woff?x4og14') format("woff"), url('../../../../fonts/icomoon.ttf?x4og14') format("truetype"), url('../../../../fonts/icomoon.svg?x4og14#icomoon') format("svg")
+	font-weight: normal
+	font-style: normal
+
+[class^="icon-"], [class*=" icon-"]
+	font-family: 'icomoon'
+	speak: none
+	font-style: normal
+	font-weight: normal
+	font-variant: normal
+	text-transform: none
+	line-height: 1
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
+.icon-play:before
+	content: "\e606"
+
+.icon-question:before
+	content: "\e600"
+
+.icon-edit:before
+	content: "\e601"
+
+.icon-redo2:before
+	content: "\e968"
+
+.icon-user-tie:before
+	content: "\e976"
+
+.icon-stop2:before
+	content: "\ea1e"
+
+.icon-recycle:before
+	content: "\e602"
+
+.icon-group:before
+	content: "\e603"
+
+.icon-locked:before
+	content: "\e604"
+
+.icon-trash:before
+	content: "\e605"
+
+/*---------------------------------------------*\
+	$VARIABLES
+//\*---------------------------------------------*/
+$bg-color: #ececec
+$text-color: #282828
+$text-claro: #848484
+$title-color: #626262
+$link-color: #0176bc
+$purple: #6e747f
+$white-slow: #c1c1c1
+$celeste: #0077C0
+$yellow: #f2ad18
+$link-hover: #0077c0
+/*---------------------------------------------*\
+	$TAGS
+//\*---------------------------------------------*/
+html
+	height: 100%
+//html, body
+	//height: 100%
+	//width: 100%
+/* a
+	&:link
+		color: white
+	&:visited
+		color: white
+	&:hover
+		color: white
+	&:active
+		color: white */
+
+body
+	color: $text-color
+	font-family: "Open Sans", Arial, sans-serif
+	font-size: 16px
+
+h1, h2, h3, h4, h5, h6
+	color: $text-color !important
+
+input[type="radio"], input[type="checkbox"]
+	opacity: 0
+	position: absolute
+	width: 18px
+	z-index: 12
+
+	&:checked, &:focus
+		outline: none !important
+
+	&:checked
+		+ .lbl
+			&::before
+				background-color: #F5F8FC
+				border-color: #adb8c0
+				+box-shadow(rgba(0, 0, 0, 0.05) 0 1px 2px, rgba(0, 0, 0, 0.05) 0px -15px 10px -12px inset, rgba(255, 255, 255, 0.1) 15px 10px -12px inset)
+				display: inline-block
+				content: "\e013"
+				font-weight: 300
+
+		&:active
+			+ .lbl
+				&::before
+					+box-shadow(rgba(0, 0, 0, 0.05) 0 1px 2px, rgba(0, 0, 0, 0.1) 0px 1px 3px inset)
+
+	&:hover
+		+ .lbl
+			&::before
+				border-color: #1c7aad
+			&:hover
+				&::before
+					border-color: #1c7aad
+	&:active
+		+ .lbl
+			&::before
+				+box-shadow(rgba(0, 0, 0, 0.05) 0 1px 2px, rgba(0, 0, 0, 0.1) 0px 1px 3px inset)
+
+	+ .lbl
+		//display: inline-block
+		font-size: 0.875em
+		font-weight: 300
+		//line-height: 20px
+		margin: 0
+		//min-height: 14px
+		//min-width: 14px
+		//position: relative
+		z-index: 11
+
+		&::before
+			background-color: #FAFAFA
+			border: 1px solid #CCC
+			+border-radius(3px)
+			+box-shadow(rgba(0, 0, 0, 0.05) 0 1px 2px)
+			//color: #2091cf
+			color: #656565
+			content: "\a0"
+			display: inline-block
+			//font-family: Arial, Helvetica, sans-serif
+			font-size: 36px
+			font-weight: normal
+			height: 16px
+			line-height: 13px
+			//min-width: 13px
+			margin-right: 5px
+			//margin-top: -4px
+			text-align: center
+			vertical-align: middle
+			width: 16px
+
+		// &.favorite
+		// 	font-size: 14px
+		// 	font-weight: 300
+
+		// 	&::before
+		// 		background-color: transparent
+		// 		border: none
+		// 		+border-radius(0)
+		// 		+box-shadow(none)
+		// 		color: #d9d9d9
+		// 		content: "\f006"
+		// 		font-size: 28px
+		// 		font-family: FontAwesome
+		// 		margin-right: 15px
+
+		// > span.bg-gusto
+		// 	background-image: url("../../../../images/sprites-front.png")
+		// 	background-repeat: no-repeat
+		// 	display: inline-block
+		// 	height: 27px
+		// 	margin-right: 5px
+		// 	vertical-align: top
+		// 	width: 27px
+
+input[type="radio"]
+	&:checked
+		+ .lbl
+			&::before
+				color: $link-color
+				content: "\f0c8"
+				font-family: FontAwesome
+				font-size: 1em
+				//content: "\2022"
+
+			// &.anexos
+			// 	&::before
+			// 		color: red
+			// 		content: "\f0c8"
+			// 		font-family: FontAwesome
+			// 		font-size: 11px
+			// 		line-height: 15px
+
+input[type="checkbox"]
+	&:checked
+		+ .lbl
+			&::before
+				font-family: 'Glyphicons Halflings'
+				font-size: 13px
+
+			// &.favorite
+			// 	&::before
+			// 		color: yellow
+			// 		content: "\f005"
+			// 		font-family: FontAwesome
+			// 		font-size: 28px
+
+			// &.anexos
+			// 	&::before
+			// 		color: red
+			// 		content: "\f0c8"
+			// 		font-family: FontAwesome
+			// 		font-size: 11px
+			// 		line-height: 15px
+
+p
+	font-size: 0.875em
+
+::-webkit-input-placeholder
+	color: $text-claro
+::-moz-placeholder
+	color: $text-claro
+\:-ms-input-placeholder
+	color: $text-claro
+input:-moz-placeholder
+	color: $text-claro
+
+::-moz-selection
+	background: #fe57a1
+	color: #fff
+	text-shadow: none
+::selection
+	background: #fe57a1
+	color: #fff
+	text-shadow: none
+
+/*---------------------------------------------*\
+	$BTN
+//\*---------------------------------------------*/
+.button
+	border: 1px solid transparent
+	+border-radius(4px)
+	//+box-shadow(rgba(black, 0.5) 0 0 2px, rgba(white, 0.2) 1px 1px 1px 0px inset)
+	color: white
+	cursor: pointer
+	font-size: 0.75em
+	font-weight: bold
+	padding: 6px 12px
+	//+text-shadow(rgba(black, 0.2) 1px -1px 0)
+	+transition(all 0.2s ease)
+	white-space: nowrap
+	&:link, &:hover
+		color: white
+.button--default
+	border-color: #ccc
+	+background-image(linear-gradient($celeste, #009bfa))
+	&:hover
+		+background-image(linear-gradient(#009bfa, $celeste))
+
+.button--blue
+	border-color: #587ba3
+	+background-image(linear-gradient(#7ca9de, #5d82ad))
+	&:hover
+		+background-image(linear-gradient(#5d82ad, #7ca9de))
+
+.button--red
+	border-color: #955252
+	+background-image(linear-gradient(#b17272, #8c4e4e))
+	&:hover
+		+background-image(linear-gradient(#8c4e4e, #b17272))
+
+.button--search
+	font-size: 14px
+
+
+
+
+
+/*---------------------------------------------*\
+	$HEADER
+//\*---------------------------------------------*/
+.header
+	margin-bottom: 20px
+	padding-top: 10px
+//.header__logo
+.header__logout
+	background-color: rgba(black, 0.24)
+	color: $white-slow
+	display: inline-block
+	font-size: 0.71em
+	padding: 35px 5px 2px 5px
+	position: absolute
+	right: 0
+	top: 0
+	+transition(all 0.2s ease)
+	&:hover
+		background-color: rgba(white, 0.1)
+		color: $white-slow
+	&::before
+		content: "\f124"
+		font-family: FontAwesome
+		font-size: 2.4em
+		left: 30px
+		position: absolute
+		top: 0
+
+.header__top-menu
+	margin-bottom: 10px
+
+	.mnu-top, .mnu-social
+		display: inline-block
+		margin: 0
+		vertical-align: top
+
+	.mnu-social
+		margin-left: 5px
+		li
+			padding: 0
+			vertical-align: top
+			.facebook, .twitter
+				background-color: transparent
+				background-image: url("../../../../images/sprite.png")
+				background-repeat: no-repeat
+				display: block
+				height: 28px
+				+opacity(1)
+				+transition(all 0.2s ease-in-out)
+				width: 27px
+
+				&:hover
+					+opacity(0.7)
+
+			.facebook
+				background-position: 0 0
+
+			.twitter
+				background-position: -27px 0
+
+	.mnu-top
+		li
+			line-height: 0.75em
+			margin-left: -4px
+			padding: 0
+			a
+				background: transparent url('../../../../images/bg-border.png') right 0 repeat-y
+				color: $text-color
+				font-size: 0.75em
+				padding: 0 8px
+
+			&.active
+				a
+					text-decoration: underline
+
+.main-menu
+	margin : 0
+	text-align: right
+	+transition(all 0.2s ease)
+
+	li
+		display: inline-block
+		float: none
+		margin : 0 20px
+		padding: 0
+		+transition(all 0.2s ease)
+
+		a
+			color          : $text-color
+			display        : block
+			padding: 0
+			text-decoration: none
+			text-transform : uppercase
+			+transition(all 0.2s ease)
+
+			&:link
+				background-color: transparent
+
+		&:hover, &.active
+			a
+				border-bottom: 4px solid $yellow
+				color        : $link-hover
+				font-weight  : 700
+
+
+
+/*---------------------------------------------*\
+	$LINKS
+//\*---------------------------------------------*/
+.link-big
+	color: $text-claro
+	font-size: 1.43em
+
+	&:link
+		color: $text-claro
+
+
+
+
+/*---------------------------------------------*\
+	$LOGIN
+//\*---------------------------------------------*/
+.login
+	margin: 15% auto 0 auto
+	width: 50%
+.login__logo
+	margin-bottom: 50px
+.login__logo__img
+	margin: 0 auto
+.login__form
+	margin-bottom: 30px
+	padding: 0 20%
+.login__form__group
+	position: relative
+.login__form__input
+	background-color: #fbfbfb
+	border: 1px solid #d7d7d7
+	+border-radius(0)
+	color: $text-color
+	font-size: 0.9375em
+	padding-left: 25px
+	+ .form-control-feedback
+		left: 0
+.login__form__group__icon
+	position: absolute
+	right: 10px
+	top: 9px
+	&::before
+		color: $text-claro
+
+
+
+
+/*---------------------------------------------*\
+	$NICESCROLL
+//\*---------------------------------------------*/
+.nicescroll-rails
+	z-index: 9999 !important
+	> div
+		background-color: $link-color !important
+
+
+
+/*---------------------------------------------*\
+	$SIDEBAR
+//\*---------------------------------------------*/
+.sidebar
+	// background: transparent url('../../../../../images/sidebar.jpg') 0 0 repeat-y
+	// padding-top: 60px
+	// position: fixed
+	// width: 112px
+
+
+
+
+
+/*---------------------------------------------*\
+	$MAIN_MENU
+//\*---------------------------------------------*/
+.main_menu__ul
+	list-style: none
+	margin: 0
+	padding: 0
+
+.main_menu__ul__li
+	border-bottom: 1px solid rgba($white-slow, 0.1)
+	padding: 8px 0
+	&:first-child
+		border-top: 1px solid rgba($white-slow, 0.1)
+	&:hover, &.active
+		background-color: rgba($link-color, 0.7)
+
+	a
+		color: $white_slow
+		font-size: 0.875em
+		i
+			display: block
+			font-size: 2.14em
+
+		&:hover
+			text-decoration: none
+
+
+
+
+
+/*---------------------------------------------*\
+	$MAIN
+//\*---------------------------------------------*/
+.main
+	margin-bottom: 30px
+.main__title
+	font-weight: 700
+.main__header
+	margin-bottom: 20px
+	position: relative
+.main__header__title
+	font-weight: bold
+	margin: 0 0 20px 0
+.main__header__buttons
+	position: absolute
+	right: 20px
+	top: 0
+.hr
+	border-top: 1px solid rgba(black, 0.1)
+	border-bottom: 1px solid rgba(white, 0.5)
+	margin: 0
+.width-auto
+	width: auto !important
+
+.main__grid
+	padding-top: 20px
+.main__content
+	margin-bottom: 30px
+.main__content__title
+	font-weight: bold
+//.main__grid__footer
+.main__grid__footer__rows
+	p
+		font-size: 0.75em
+
+.main__content__observation
+	margin-bottom: 30px
+//.main__content__observation__date
+.main__content__observation__date__start, .main__content__observation__date__end
+	border: 1px solid #ccc
+	border-bottom: none
+	float: left
+	padding: 3px
+	width: 50%
+	vertical-align: top
+	.form-group
+		margin-bottom: 0
+		input
+			+border-top-left-radius(0)
+			+border-bottom-left-radius(0)
+		.input-group-addon
+			+border-top-right-radius(0)
+			+border-bottom-right-radius(0)
+	.form__label
+		font-size: 0.75em
+.main__content__observation__date__start
+	border-right: none
+.main__content__observation__article
+	display: inline-block
+	margin-bottom: 10px
+	margin-right: 5px
+	padding-left: 41px
+	position: relative
+	width: 49%
+	&:nth-child(2n)
+		margin-right: 0
+.main__content__observation__article__title
+	background-color: #ccc
+	display: inline-block
+	left: -89px
+	margin: 0
+	padding: 10px
+	position: absolute
+	text-align: center
+	top: 89px
+	-webkit-transform: rotate(270deg)
+	-moz-transform: rotate(270deg)
+	-o-transform: rotate(270deg)
+	writing-mode: lr-tb
+	vertical-align: middle
+	width: 218px
+.main__content__observation__article__textarea
+	display: inline-block
+	height: 150px
+	padding: 5px
+	width: 100%
+
+.main__states
+	margin-bottom: 20px
+.main__states__item
+	background-color: transparent
+	display: inline-block
+	height: 210px
+	margin-bottom: 10px
+	margin-right: 5px
+	position: relative
+	vertical-align: top
+	width: 15%
+
+	&.active
+		background-color: #f9f9f9
+		&::before
+			border-bottom: 12px solid transparent
+			border-left: 18px solid transparent
+			border-right: 18px solid transparent
+			border-top: 12px solid #f0ad4e
+			content: ""
+			height: 0
+			left: 35%
+			position: absolute
+			top: 23%
+			width: 0
+		&::after
+			border-bottom: 12px solid white
+			border-left: 18px solid transparent
+			border-right: 18px solid transparent
+			border-top: 12px solid transparent
+			content: ""
+			height: 0
+			left: 35%
+			position: absolute
+			bottom: 0
+			width: 0
+
+	&:hover
+		&.success
+			background-color: #f9f9f9
+			&::before
+				border-bottom: 12px solid transparent
+				border-left: 18px solid transparent
+				border-right: 18px solid transparent
+				border-top: 12px solid #f0ad4e
+				content: ""
+				height: 0
+				left: 35%
+				position: absolute
+				top: 23%
+				width: 0
+			&::after
+				border-bottom: 12px solid white
+				border-left: 18px solid transparent
+				border-right: 18px solid transparent
+				border-top: 12px solid transparent
+				content: ""
+				height: 0
+				left: 35%
+				position: absolute
+				bottom: 0
+				width: 0
+
+	&:first-child, &:last-child
+		.main__states__item__date
+			padding-top: 8px
+
+.main__states__item__state
+	border-bottom: 10px solid white
+	border-top: 4px solid #b1b1b1
+	margin: 0 0 5px 0
+.main__states__item__state--success
+	border-color: $yellow white white white
+.main__states__item__img
+	cursor: pointer
+	margin: 40px auto 0 auto
+	img
+		margin: 0 auto
+
+.main__states__item__img--1
+	background-position: 0 -60px
+	height: 64px
+	width: 56px
+	&.js-view-obs-state
+		background-position: 0 0
+
+.main__states__item__img--2
+	background-position: 0 -52px
+	height: 52px
+	width: 94px
+	&.js-view-obs-state
+		background-position: 0 0
+
+.main__states__item__img--3
+	background-position: 0 -52px
+	height: 52px
+	width: 51px
+	&.js-view-obs-state
+		background-position: 0 0
+
+.main__states__item__img--4
+	background-position: 0 -59px
+	height: 59px
+	width: 45px
+	&.js-view-obs-state
+		background-position: 0 0
+
+.main__states__item__img--5
+	background-position: 0 -59px
+	height: 59px
+	width: 69px
+	&.js-view-obs-state
+		background-position: 0 0
+
+.main__states__item__img--6
+	background-position: 0 -54px
+	height: 54px
+	width: 69px
+	&.js-view-obs-state
+		background-position: 0 0
+
+.main__states__item__title
+	bottom: 20px
+	color: #0176bc !important
+	margin: 0 0 5px 0
+	padding: 0 5px
+	position: absolute
+	width: 100%
+
+.main__states__item__date
+	font-size: 0.75em
+	margin: 0
+	min-height: 35px
+
+.main__obs
+	background-color: white !important
+
+/*---------------------------------------------*\
+	$FORM
+//\*---------------------------------------------*/
+.form__label
+	color: $title-color
+	font-size: 1em
+	font-weight: 400
+.form__input, .form__select, .form__textarea
+	background-color: #fbfbfb
+	border: 1px solid #d7d7d7
+	+border-radius(0)
+	color: $text-color
+	font-size: 0.9375em
+.form__group__input
+	border-right: none
+.form__group__btn
+	button
+		+border-top-right-radius(0)
+		+border-bottom-right-radius(0)
+		border-left: none
+.form__date
+	+ .form-control-feedback
+		right: 40px
+.form__select
+	+ .form-control-feedback
+		right: 20px
+
+/*---------------------------------------------*\
+	$FRM-SEARCH
+//\*---------------------------------------------*/
+.frm-search
+	margin-bottom: 20px
+	overflow: hidden
+.frm-search__group
+	float: right
+	width: 20%
+
+
+
+
+
+/*---------------------------------------------*\
+	$PANEL
+//\*---------------------------------------------*/
+.panel
+	background-color: transparent
+	border: 1px solid #ccc
+	+border-radius(0)
+	+box-shadow(none)
+	padding: 15px
+	position: relative
+
+.panel__title
+	font-weight: bold
+	border-bottom: 1px solid $link-color
+
+.panel__select-month
+	position: absolute
+	right: 10px
+	top: 15px
+
+	select
+		background-color: $link-color
+		border: none
+		color: white
+		font-size: 0.875em
+		padding: 3px 5px
+		text-transform: uppercase
+.panel__info
+	span
+		font-weight: 700
+		text-transform: uppercase
+
+
+
+
+
+
+
+/*---------------------------------------------*\
+	$TABLE
+//\*---------------------------------------------*/
+.table
+	border-collapse: separate
+	border-spacing: 1px 2px
+	display: block
+
+	thead
+		border: none
+		tr
+			background-color: $link-color
+			th
+				color: white
+				font-size: 0.875em
+				font-weight: 500
+				text-align: center
+				text-transform: uppercase
+
+				a
+					color: white
+					i::before
+						margin-left: 5px
+				&.big
+					width: 40%
+
+	tbody
+		border: none
+		tr
+			background-color: #f4f4f4
+			td
+				border: none
+				color: $text-color
+				font-size: 0.875em
+			&:nth-child(2n), &:hover
+				background-color: #d8d8d8
+
+/*---------------------------------------------*\
+	$PAGINATION
+//\*---------------------------------------------*/
+.pagination
+	margin: 0
+	li
+		display: inline-block
+		margin-right: 5px
+
+		a
+			+border-radius(3px)
+			color: #ccc
+
+
+/*---------------------------------------------*\
+	$WIDGET
+//\*---------------------------------------------*/
+.widget
+	+background-image(linear-gradient(rgba(black, 0), rgba(black, 0.1)))
+	//+background-image(linear-gradient(#f5f5f5, #e2e2e2))
+	border: 1px solid #ccc
+	margin-bottom: 10px
+	padding: 15px
+.widget__title
+	color: $text-color
+	font-size: 1em
+	font-weight: 600
+.widget__info
+	list-style: none
+	margin: 0
+	padding: 0
+//.widget__info__item
+.widget__info__item__header, .widget__info__item__content
+	color: $text-color
+	display: inline-block
+	font-size: 0.75em
+	vertical-align: top
+.widget__info__item__header
+	font-weight: bold
+	width: 44%
+.widget__info__item__content
+	text-align: right
+	width: 54%
+
+// .widget__chekbox
+.widget__checkbox__group
+	margin-bottom: 15px
+.widget__img
+	img
+		margin: 0 auto
+
+
+#popup_container
+	z-index: 10000000000 !important
+
+
+
+
+
+/*---------------------------------------------*\
+	$THUMBNAILS
+//\*---------------------------------------------*/
+.thumbnails
+	margin-bottom: 20px
+	text-align: center
+.thumbnails__img
+	margin: 0 auto 5px auto
+	max-width: 150px
+.thumbnails__link
+	color: $link-color
+	display: block
+	font-size: 0.75em
+	&:hover
+		color: $title-color
+
+
+
+
+
+/*---------------------------------------------*\
+	$MEDIAS_QUERIES
+//\*---------------------------------------------*/
+@media only screen and (max-width: 640px)
+
+@media only screen and (max-width: 767px)
+
+@media only screen and (min-width: 768px) and (max-width: 991px)
+
+@media only screen and (min-width: 992px) and (max-width: 1199px)
+
+>>>>>>> frontend
 @media only screen and (min-width: 1200px)

@@ -193,7 +193,6 @@ class Orders_model extends CI_Model
 
 		if (count($where) > 0) {
 			$result = $this->db->where($where)->get($table);
-			echo $this->db->last_query();
 
 			if ($result->num_rows() > 0) {
 				if (count($data) > 0) {

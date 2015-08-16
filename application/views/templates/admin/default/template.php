@@ -10,7 +10,7 @@
         <title><?php echo (isset($_title)) ? $_title . ' | ' : ''; ?><?php echo $this->config->item('cms_site_name'); ?></title>
 
         <!-- Google Font -->
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' />
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css' />
 
         <!-- Font awesome -->
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -148,7 +148,7 @@
 		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script>window.jQuery || document.write('<script src="<?php echo base_url(); ?>assets/scripts/libraries/jquery/jquery-1.11.0.min.js"><\/script>')</script>
 		<script> var _root_ = '<?php echo base_url(); ?>'</script>
-        <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+        <script type="text/javascript" src="https://fgnass.github.io/spin.js/spin.min.js"></script>
         <?php echo $_js; ?>
     </body>
 </html>

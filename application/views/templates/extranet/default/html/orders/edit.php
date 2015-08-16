@@ -77,11 +77,14 @@
 	  				</section>
 	  			<?php endif; ?>
 
+				<?php if ($_order->post_status === 'initiated') : ?>
 					<button type="submit" class="button button--default"><?php echo $this->lang->line('cms_general_label_save'); ?></button>
+				<?php endif; ?>
+
 				</div><!-- end col-xs-8 -->
 				<div class="col-xs-4">
 					<section class="widget">
-						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_status'); ?></h4>
+						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_status'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 						<div class="widget__chekbox">
 							<!-- Order Status -->
 							<div class="widget__checkbox__group">
@@ -96,7 +99,7 @@
 					</section><!-- end widget -->
 
 					<section class="widget">
-						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_additional_data'); ?></h4>
+						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_additional_data'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 						<!-- Order Site -->
 						<div class="form-group">
 							<label for="order_site" class="sr-only"><?php echo $this->lang->line('cms_general_title_destination'); ?></label>
@@ -119,12 +122,12 @@
 					</section><!-- end widget -->
 
 					<section class="widget">
-						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_date'); ?></h4>
+						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_date'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 						<!-- Order date -->
 						<div class="form-group">
 				  			<label for="order_date" class="form__label"><?php echo $this->lang->line('cms_general_title_order_date'); ?></label>
 							<div class="input-group form__date" id="dtp-orderdate" data-date-format="YYYY-MM-DD" data-datetime="<?php echo date('Y-m-d', strtotime($_order->created_at)); ?>">
-								<input type="text" class="form-control" name="order_date" id="order_date" placeholder="AAAA-MM-DD" required />
+								<input type="text" class="form-control" name="order_date" id="order_date" placeholder="AAAA-MM-DD" required data-edit="1" />
 								<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 							</div>
 						</div><!-- end form-group -->

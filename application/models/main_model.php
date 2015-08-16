@@ -132,6 +132,85 @@ class Main_model extends CI_Model {
 		return FALSE;
 	}
 
+	/**
+	* Obtener listado de órdenes que no tengan status finalized
+	*
+	* @access public
+	* @return Arr 		Array con los id de las órdenes que tienen estado initiated
+	*/
+	public function getOrdersNotFinalized()
+	{
+		$this->db->select('p.id, pm.meta_value');
+		$this->db->from($this->_table . ' p');
+		$this->db->join($this->_tableMeta . ' pm', 'p.id = pm.post_id', 'left');
+		$where = array(
+			'p.post_status' => 'initiated',
+			'p.post_type'   => 'orders',
+			'pm.meta_key'   => 'mb_post_state_obs'
+		);
+
+		$this->db->where($where);
+		$result = $this->db->get();
+
+		if ($result->num_rows() > 0)
+		{
+			return $result->result();
+		}
+
+		return FALSE;
+	}
+
+	public function getRow($table = '', $select = '', $where = array())
+	{
+		$table = (empty($table)) ? $this->_table : $table;
+
+		if (!empty($select))
+		{
+			$this->db->select($select);
+		}
+
+		if (count($where))
+		{
+			$this->db->where($where);
+		}
+
+		$result = $this->db->get($table);
+		if ($result->num_rows() > 0)
+		{
+			return $result->row();
+		}
+
+		return FALSE;
+	}
+
+	/**
+	* Método para editar algún registro
+	*
+	* @access public
+	* @param  $table 		Indicamos la tabla
+	* @param  $where 		Indicamos a través de un array que registro se modificará
+	* @param  $data 		Array con los datos a modificar
+	* @return boolean 		Si se actualiza los datos devuelve TRUE caso contrario devuelve FALSE
+	*/
+	public function edit($table = NULL, $where = array(), $data = array())
+	{
+		$table = (is_null($table)) ? $this->_table : $table;
+
+		if (count($where) > 0) {
+			$result = $this->db->where($where)->get($table);
+
+			if ($result->num_rows() > 0) {
+				if (count($data) > 0) {
+					$this->db->where($where);
+					$this->db->update($table, $data);
+					return TRUE;
+				}
+			}
+		}
+
+		return FALSE;
+	}
+
 }
 
 /* End of file main_model.php */

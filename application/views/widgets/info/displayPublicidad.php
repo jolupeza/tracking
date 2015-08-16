@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="widget">
     <figure class="widget__img">
     <?php if (!empty($publi->post_excerpt)) : ?>
@@ -8,4 +9,10 @@
 			<img class="img-responsive" src="<?php echo $publi->guid; ?>"></img>
    		<?php endif; ?>
     </figure><!-- end widget__info -->
+=======
+<div class="widget">
+    <figure class="widget__img">
+        <img class="img-responsive" src="<?php echo $publi->guid; ?>"></img>
+    </figure><!-- end widget__info -->
+>>>>>>> frontend
 </div><!-- end widget -->

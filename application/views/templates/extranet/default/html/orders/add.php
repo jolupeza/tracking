@@ -77,7 +77,7 @@
 				</div><!-- end col-xs-8 -->
 				<div class="col-xs-4">
 					<section class="widget">
-						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_status'); ?></h4>
+						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_status'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 						<div class="widget__chekbox">
 							<!-- Order Status -->
 							<div class="widget__checkbox__group">
@@ -90,7 +90,7 @@
 					</section><!-- end widget -->
 
 					<section class="widget">
-						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_additional_data'); ?></h4>
+						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_additional_data'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 						<!-- Order Site -->
 						<div class="form-group">
 							<label for="order_site" class="form__label"><?php echo $this->lang->line('cms_general_title_destination'); ?></label>
@@ -121,7 +121,7 @@
 					</section><!-- end widget -->
 
 					<section class="widget">
-						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_date'); ?></h4>
+						<h4 class="widget__title"><?php echo $this->lang->line('cms_general_label_date'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4>
 						<!-- Order date -->
 						<div class="form-group">
 				  			<label for="order_date" class="form__label"><?php echo $this->lang->line('cms_general_title_order_date'); ?></label>

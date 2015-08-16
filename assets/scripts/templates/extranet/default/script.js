@@ -80,6 +80,8 @@ var spinner;
     target = document.getElementById('spin');
     spinner = new Spinner(opts);
 
+    j('[data-toggle="tooltip"]').tooltip();
+
     //j(":file").filestyle();
 	});
 })(jQuery);

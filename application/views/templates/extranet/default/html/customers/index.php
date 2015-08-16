@@ -15,7 +15,7 @@
 			<div class="col-xs-3">
 			<?php if ($this->user->has_permission('add_customers')) : ?>
 				<section class="widget">
-					<h4 class="widget__title"><?php echo $this->lang->line('cms_general_title_add_customer'); ?></h4><!-- end widget__title -->
+					<h4 class="widget__title"><?php echo $this->lang->line('cms_general_title_add_customer'); ?> <span class="tool" data-toggle="tooltip" data-placement="bottom" title="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."></span></h4><!-- end widget__title -->
 
 					<?php echo form_open('', array('id' => 'js-frm-add-customer'), array('token' => $_token)); ?>
 
